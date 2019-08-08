@@ -12,7 +12,9 @@ public class Shortener {
         this.storageStrategy = storageStrategy;
     }
 
-    /*будет возвращать идентификатор id для заданной строки.*/
+    /**
+     * Будет возвращать идентификатор id для заданной строки
+     */
     public synchronized Long getId(String string){
         if (storageStrategy.containsValue(string))
             return storageStrategy.getKey(string);
@@ -23,7 +25,10 @@ public class Shortener {
         return lastId;
     }
 
-    /*будет возвращать строку для заданного идентификатора или null, если передан неверный идентификатор.*/
+    /**
+     * будет возвращать строку для заданного идентификатора или null,
+     * если передан неверный идентификатор.
+     */
     public synchronized String getString(Long id){
         return storageStrategy.getValue(id);
     }
