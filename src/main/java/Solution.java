@@ -1,6 +1,7 @@
 package com.javarush.task.task33.task3310;
 
 import com.javarush.task.task33.task3310.strategy.HashMapStorageStrategy;
+import com.javarush.task.task33.task3310.strategy.OurHashMapStorageStrategy;
 import com.javarush.task.task33.task3310.strategy.StorageStrategy;
 
 import java.util.Date;
@@ -10,6 +11,7 @@ import java.util.Set;
 public class Solution {
     public static void main(String[] args) {
         testStrategy(new HashMapStorageStrategy(), 10_000);
+        testStrategy(new OurHashMapStorageStrategy(), 10);
     }
 
     /**
@@ -41,6 +43,7 @@ public class Solution {
      * на определенном количестве элементов elementsNumber
      */
     public static void testStrategy(StorageStrategy strategy, long elementsNumber){
+
         System.out.println(strategy.getClass().getSimpleName());
         Set<String> stringsPoolSrc = new HashSet<>();
         for (int i = 0; i < elementsNumber; i++) {
