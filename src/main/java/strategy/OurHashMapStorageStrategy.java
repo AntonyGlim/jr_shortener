@@ -65,11 +65,21 @@ public class OurHashMapStorageStrategy implements StorageStrategy {
 
     @Override
     public boolean containsKey(Long key) {
-        return false;
+        return getEntry(key) != null;
     }
 
     @Override
     public boolean containsValue(String value) {
+        if (value == null){
+            return false;
+        }
+        for (Entry entry : table) {
+            for (Entry e = entry; e != null; e = e.getNext()) {
+                if (e.getValue().equals(value)){
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -80,9 +90,14 @@ public class OurHashMapStorageStrategy implements StorageStrategy {
 
     @Override
     public Long getKey(String value) {
+        if (value == null){
+            return 0L;
+        }
         for (Entry entry : table) {
-            if (entry.getValue().equals(value)){
-                return entry.getKey();
+            for (Entry e = entry; e != null; e = e.getNext()) {
+                if (entry.getValue().equals(value)){
+                    return entry.getKey();
+                }
             }
         }
         return null;
@@ -96,6 +111,6 @@ public class OurHashMapStorageStrategy implements StorageStrategy {
                 return entry.getValue();
             }
         }
-        return null;
+        return null == getEntry(key) ? null : getEntry(key).getValue();
     }
 }
