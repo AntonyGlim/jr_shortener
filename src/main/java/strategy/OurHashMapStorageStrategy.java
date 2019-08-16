@@ -49,7 +49,6 @@ public class OurHashMapStorageStrategy implements StorageStrategy {
         return null == getEntry(key) ? null : getEntry(key).getValue();
     }
 
-
     public int hash(Long k) {
         return k.hashCode();
     }
@@ -72,7 +71,6 @@ public class OurHashMapStorageStrategy implements StorageStrategy {
                 return e;
         }
         return null;
-
     }
 
     public void resize(int newCapacity) {
