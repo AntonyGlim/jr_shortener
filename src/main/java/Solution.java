@@ -11,7 +11,7 @@ import java.util.Set;
 public class Solution {
     public static void main(String[] args) {
         testStrategy(new HashMapStorageStrategy(), 10_000);
-        testStrategy(new OurHashMapStorageStrategy(), 10);
+        testStrategy(new OurHashMapStorageStrategy(), 10_000);
     }
 
     /**
@@ -43,7 +43,6 @@ public class Solution {
      * на определенном количестве элементов elementsNumber
      */
     public static void testStrategy(StorageStrategy strategy, long elementsNumber){
-
         System.out.println(strategy.getClass().getSimpleName());
         Set<String> stringsPoolSrc = new HashSet<>();
         for (int i = 0; i < elementsNumber; i++) {

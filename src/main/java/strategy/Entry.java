@@ -5,10 +5,10 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Entry implements Serializable {
-    private Long key;
-    private String value;
-    private Entry next;
-    private int hash;
+    Long key;
+    String value;
+    Entry next;
+    int hash;
 
     public Entry(int hash, Long key, String value, Entry next) {
         this.key = key;
@@ -41,13 +41,5 @@ public class Entry implements Serializable {
 
     public String toString(){
         return key + "=" + value;
-    }
-
-    public Entry getNext() {
-        return next;
-    }
-
-    public int getHash() {
-        return hash;
     }
 }
